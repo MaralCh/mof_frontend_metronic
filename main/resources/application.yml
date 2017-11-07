@@ -1,0 +1,31 @@
+server:
+    port: 8086
+
+zuul:
+  routes:
+    oauth-server:
+      path: /oauth/**
+      url: http://localhost:8071/spring-security-oauth-server/oauth
+    oauth-resource:
+      path: /api/**
+      url: http://localhost:8072/spring-security-oauth-resource/api
+
+
+oauth-resource:
+  ribbon:
+    ReadTimeout: 60000
+    ConnectTimeout: 60000
+    listOfServers: 103.48.116.54:8082
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://103.48.116.54:8761/eureka/
+  instance:
+    hostname: localhost
+
+spring:
+  application:
+    name: oauth-gateway
+
+

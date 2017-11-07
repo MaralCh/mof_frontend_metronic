@@ -1,0 +1,42 @@
+	<div id="page_content">
+		<div id="top_bar">
+			<div ncy-breadcrumb></div>
+		</div>
+        <div id="page_content_inner">
+             <div class="md-card">
+			     <div class="md-card-content">
+					 <button style="margin-bottom:15px;" class="md-btn md-btn-success" ng-click='inventory()'> <span class='k-icon k-i-plus'></span>Бараа материал</button>
+					 <kendo-grid options="pmenuGrid"></kendo-grid>
+			     </div>
+			 </div>
+        </div>
+    </div>
+	<div ng-include="'/app/views/footer.html'"></div>
+
+
+	<script type="text/x-kendo-template" id="add">
+         <div style="text-align:left;">
+           <button class="md-btn md-btn-success" ng-click='inventory()'> <span class='k-icon k-i-plus'></span>Бараа материал</button>
+         </div>
+    </script>
+    <script type="text/x-kendo-template" id="update">
+         <div id="details-container" style="float:left;">
+           <button class="md-btn md-btn-small md-btn-primary" ng-click='edit(#:id#)'> </span>засах</button>
+         </div>
+		<div id="details-container1" style="float:left; margin-left: 20px;">
+           <button class="md-btn md-btn-small md-btn-danger" ng-click='deleteO(#:id#)'> </span>устгах</button>
+         </div>
+    </script>
+
+	<script type="x/kendo-template" id="page-template">
+		<div class="page-template">
+			<div class="header">
+				<div style="float: right">Page #: pageNum # of #: totalPages #</div>
+				Multi-page grid with automatic page breaking
+			</div>
+			<div class="watermark">Tyder LLC</div>
+			<div class="footer">
+				Page #: pageNum # of #: totalPages #
+			</div>
+		</div>
+	</script>

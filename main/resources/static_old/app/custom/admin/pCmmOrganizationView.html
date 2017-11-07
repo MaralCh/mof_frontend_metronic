@@ -1,0 +1,30 @@
+    <div id="page_content">
+        <div id="page_content_inner">
+             <div class="md-card">
+			     <div class="md-card-content">
+			        <!--  <h3 class="heading_a">Input fields</h3> -->
+			         <div class="uk-grid" data-uk-grid-margin>
+			             <div class="uk-width-medium-1-1">    
+			             	 <kendo-grid options="pmenuGrid"></kendo-grid>
+			             </div>                  
+			         </div>               
+			     </div>
+			 </div> 
+        </div>
+    </div>
+<div ng-include="'/app/views/footer.html'"></div>
+
+ <style>
+	.k-textbox, .k-numerictextbox{
+		width:95%;
+	}
+	.slabel{
+	    color: #727272;
+   		font-size: 12px;
+   		margin: 0 !important;
+	}
+	.one .selectize-input {
+    border-width: 0 0 1px;
+    padding: 0px !important; 
+}
+</style>

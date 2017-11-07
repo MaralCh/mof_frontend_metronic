@@ -1,0 +1,153 @@
+<div id="page_content">
+    <div id="top_bar">
+        <div ncy-breadcrumb></div>
+    </div>
+    <div id="page_content_inner">
+        <div class="md-card">
+            <div class="md-card-content">
+                <button style="margin-bottom:15px;" class="md-btn md-btn-success" ng-click='addTransaction()'> <span class='k-icon k-i-plus'></span>Гүйлгээ нэмэх</button>
+                <kendo-grid options="pmenuGrid"></kendo-grid>
+            </div>
+        </div>
+    </div>
+</div>
+<footer id="footer">
+    <span style="display:block;  text-align:right;">&copy; 2016-2017 <a href="www.tyder.kinder.mn">Tyder LLC</a>, All rights reserved.</span>
+</footer>
+
+
+
+<div class="uk-modal" id="modal_inventory">
+    <div class="uk-modal-dialog uk-modal-dialog-large" data-uk-grid-margin>
+        <button type="button" id="closemodal" class="uk-modal-close uk-close uk-close-alt"></button>
+        <h3 class="heading_a">Бараа материал худалдан авалт</h3>
+        <form name="form_val" id="form_val"  data-ng-submit="submitForm($event)">
+            <hr style="margin-bottom:10px;">
+            <div class="uk-margin-medium-bottom">
+                <div class="uk-grid" data-uk-grid-margin>
+                    <div class="uk-width-medium-1-3">
+                        <div class="uk-form-row parsley-row">
+                            <label for="ognoo">Огноо<span class="req">*</span></label>
+                            <input type="text" ng-model="tr.date" name="val_birth" id="ognoo" required class="md-input" data-parsley-americandate data-parsley-americandate-message="This value should be a valid date (MM.DD.YYYY)" data-uk-datepicker="{format:'MM.DD.YYYY'}" md-input />
+                        </div>
+                        <div class="uk-form-row parsley-row">
+                            <input id="hariltsagch" ng-model="tr.customer" placeholder="Харилцагч"style="width: 100%"/>
+                        </div>
+                        <div class="uk-form-row parsley-row">
+                            <input id="bairshil" ng-model="tr.location" placeholder="Байршил"style="width: 100%"/>
+                            <!--<input id="bairshil" ng-model="tr.location" type="text" name="bairshil" required class="md-input" md-input />-->
+                        </div>
+                    </div>
+                    <div class="uk-width-medium-2-3">
+                        <div class="uk-form-row parsley-row">
+                            <div class="uk-grid" data-uk-grid-margin>
+                                <div class="uk-width-medium-1-1">
+                                    <div class="uk-form-row parsley-row">
+                                        <span style="float:left; margin:15px 15px 0 5px;" for="barimt">Баримт №</span>
+                                        <div style="float:left; width:100px; margin: -1px 15px 0 0">
+                                            <input type="text" ng-model="tr.receipttype" config="selectize_a_config" options="selectize_a_data.options" name="selectize_a" selectize />
+                                        </div>
+                                        <div style="float:left; width:150px; " >
+                                            <input type="text" ng-model="tr.receiptno" ng-disabled="false" name="bairshil" required class="md-input" md-input />
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="uk-form-row parsley-row">
+                            <label for="guilgee">Гүйлгээний утга<span class="req">*</span></label>
+                            <textarea id="guilgee" cols="30" rows="2" style="min-height:90px;" class="md-input" ng-model="tr.transaction" md-input textarea-autosize></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="uk-margin-medium-bottom">
+                <div class="uk-grid" data-uk-grid-margin>
+                    <div class="uk-width-medium-1-1">
+                        <kendo-grid options="pmenuGrid"></kendo-grid>
+                    </div>
+                </div>
+            </div>
+            <div class="md-card">
+                <div class="md-card-toolbar">
+                    <h3 class="md-card-toolbar-heading-text">
+                        Төлбөрийн хэлбэр
+                    </h3>
+                </div>
+                <div class="md-card-content">
+                    <div class="uk-grid" data-uk-grid-margin>
+                        <div class="uk-width-medium-1-3">
+                            <div class="uk-form-row parsley-row">
+                                <label for="belneer">Бэлнээр<span class="req">*</span></label>
+                                <input class="md-input masked_input" ng-model="tr.cash" id="belneer" type="text" data-inputmask="'alias': 'numeric', 'groupSeparator': ',', 'autoGroup': true, 'digits': 2, 'digitsOptional': false, 'prefix': '₮ ', 'placeholder': '0'" data-inputmask-showmaskonhover="false" md-input />
+                            </div>
+                            <div class="uk-form-row parsley-row">
+                                <label for="bankaar">Банкаар<span class="req">*</span></label>
+                                <input class="md-input masked_input" ng-model="tr.bank" id="bankaar" type="text" data-inputmask="'alias': 'numeric', 'groupSeparator': ',', 'autoGroup': true, 'digits': 2, 'digitsOptional': false, 'prefix': '₮ ', 'placeholder': '0'" data-inputmask-showmaskonhover="false" md-input />
+                            </div>
+                            <div class="uk-form-row parsley-row">
+                                <label for="zeeleer">Зээлээр<span class="req">*</span></label>
+                                <input class="md-input masked_input" ng-model="tr.credit" id="zeeleer" type="text" data-inputmask="'alias': 'numeric', 'groupSeparator': ',', 'autoGroup': true, 'digits': 2, 'digitsOptional': false, 'prefix': '₮ ', 'placeholder': '0'" data-inputmask-showmaskonhover="false" md-input />
+                            </div>
+                        </div>
+                        <div class="uk-width-medium-2-3">
+                            <div class="uk-form-row parsley-row">
+                                <input type="text" id="bank" ng-model="tr.bankid" config="selectize_c_config" options="selectize_c_options" name="selectize_c" selectize data-uk-tooltip="{pos:'top'}" title="Select with tooltip">
+                            </div>
+                            <div class="uk-form-row parsley-row">
+                                <label for="thugatsaa">Төлөгдөх хугацаа / 14 хоног / <span class="req">*</span></label>
+                                <input type="text" ng-model="tr.duration" name="val_birth" id="thugatsaa" required class="md-input" data-parsley-americandate data-parsley-americandate-message="This value should be a valid date (MM.DD.YYYY)" data-uk-datepicker="{format:'MM.DD.YYYY'}" md-input />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="uk-modal-footer uk-text-right">
+                <button type="submit" class="md-btn md-btn-primary md-btn-wave-light waves-effect waves-button waves-light">Хадгалах</button>
+                <button type="button" class="md-btn md-btn-flat uk-modal-close">Хаах</button>
+            </div>
+
+
+        </form>
+    </div>
+</div>
+<script type="text/x-kendo-template" id="add">
+    <div style="text-align:left;">
+        <button class="md-btn md-btn-success" ng-click='inventory()'> <span class='k-icon k-i-plus'></span>Бараа материал</button>
+    </div>
+</script>
+<script type="text/x-kendo-template" id="update">
+    <div id="details-container" style="float:left;">
+        <button class="md-btn md-btn-small md-btn-primary" ng-click='edit(#:id#)'> </span>засах</button>
+    </div>
+    <div id="details-container1" style="float:left; margin-left: 20px;">
+        <button class="md-btn md-btn-small md-btn-danger" ng-click='deleteO(#:id#)'> </span>устгах</button>
+    </div>
+</script>
+<script id="noDataLocationTemplate" type="text/x-kendo-tmpl">
+        <div>
+            No data found. Do you want to add new item - '#: instance.text() #' ?
+        </div>
+        <br />
+        <button class="k-button" onclick="addNew('#: instance.element[0].id #', '#: instance.text() #')">Add new item</button>
+    </script>
+<script id="noDataTemplate" type="text/x-kendo-tmpl">
+        <div>
+            No data found. Do you want to add new item - '#: instance.text() #' ?
+        </div>
+        <br />
+        <button class="k-button" onclick="addNew('#: instance.element[0].id #', '#: instance.text() #')">Add new item</button>
+    </script>
+<script type="x/kendo-template" id="page-template">
+    <div class="page-template">
+        <div class="header">
+            <div style="float: right">Page #: pageNum # of #: totalPages #</div>
+            Multi-page grid with automatic page breaking
+        </div>
+        <div class="watermark">Tyder LLC</div>
+        <div class="footer">
+            Page #: pageNum # of #: totalPages #
+        </div>
+    </div>
+</script>

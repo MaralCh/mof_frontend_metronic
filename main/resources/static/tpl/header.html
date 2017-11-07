@@ -1,0 +1,125 @@
+<div class="page-header">
+                        <!-- BEGIN HEADER TOP -->
+                        <div class="page-header-top">
+                            <div class="container-fluid">
+                                <!-- BEGIN LOGO -->
+                                <div class="page-logo">
+                                    <a href="index.html">
+                                        <img src="assets/layouts/layout3/img/LogoMn.png" alt="logo" class="logo-default">
+                                    </a>
+                                </div>
+                                <!-- END LOGO -->
+                                <!-- BEGIN RESPONSIVE MENU TOGGLER -->
+                                <a href="javascript:;" class="menu-toggler"></a>
+                                <!-- END RESPONSIVE MENU TOGGLER -->
+                                <!-- BEGIN TOP NAVIGATION MENU -->
+                                                                <div class="top-menu">
+                                    <ul class="nav navbar-nav pull-right">
+                                        <!-- BEGIN NOTIFICATION DROPDOWN -->
+                                        <!-- DOC: Apply "dropdown-hoverable" class after "dropdown" and remove data-toggle="dropdown" data-hover="dropdown" data-close-others="true" attributes to enable hover dropdown mode -->
+                                        <!-- DOC: Remove "dropdown-hoverable" and add data-toggle="dropdown" data-hover="dropdown" data-close-others="true" attributes to the below A element with dropdown-toggle class -->
+
+                                     
+                                        <!-- BEGIN USER LOGIN DROPDOWN -->
+                                        <li class="dropdown dropdown-user dropdown-dark">
+                                            <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+                                                <img alt="" src="assets/layouts/layout3/img/avatar.png">
+                                                <span class="username username-hide-mobile">Энхтүвшин</span>
+                                            </a>
+                                            <ul class="dropdown-menu dropdown-menu-default">
+                                                <li>
+                                                    <a href="page_user_profile_1.html">
+                                                        <i class="icon-user"></i> My Profile </a>
+                                                </li>
+                                                <li>
+                                                    <a href="app_calendar.html">
+                                                        <i class="icon-calendar"></i> My Calendar </a>
+                                                </li>
+                                                <li>
+                                                    <a href="app_inbox.html">
+                                                        <i class="icon-envelope-open"></i> My Inbox
+                                                        <span class="badge badge-danger"> 3 </span>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="app_todo_2.html">
+                                                        <i class="icon-rocket"></i> My Tasks
+                                                        <span class="badge badge-success"> 7 </span>
+                                                    </a>
+                                                </li>
+                                                <li class="divider"> </li>
+                                                <li>
+                                                    <a href="page_user_lock_1.html">
+                                                        <i class="icon-lock"></i> Lock Screen </a>
+                                                </li>
+                                                <li>
+                                                    <a href="page_user_login_1.html">
+                                                        <i class="icon-key"></i> Log Out </a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <!-- END USER LOGIN DROPDOWN -->
+                                        <!-- BEGIN QUICK SIDEBAR TOGGLER -->
+                                        <li class="dropdown dropdown-extended quick-sidebar-toggler">
+                                            <i class="icon-logout" ng-click="logout()"></i>
+                                        </li>
+                                        <!-- END QUICK SIDEBAR TOGGLER -->
+                                    </ul>
+                                </div>
+                                <!-- END TOP NAVIGATION MENU -->
+                            </div>
+                        </div>
+                        <!-- END HEADER TOP -->
+                        <!-- BEGIN HEADER MENU -->
+                        <div class="page-header-menu">
+                            <div class="container-fluid">
+                                <!-- BEGIN HEADER SEARCH BOX -->
+                                <form class="search-form" action="page_general_search.html" method="GET">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" placeholder="Search" name="query">
+                                        <span class="input-group-btn">
+                                            <a href="javascript:;" class="btn submit">
+                                                <i class="icon-magnifier"></i>
+                                            </a>
+                                        </span>
+                                    </div>
+                                </form>
+                                <!-- END HEADER SEARCH BOX -->
+                                <!-- BEGIN MEGA MENU -->
+                                <!-- DOC: Apply "hor-menu-light" class after the "hor-menu" class below to have a horizontal menu with white background -->
+                                <!-- DOC: Remove data-hover="dropdown" and data-close-others="true" attributes below to disable the dropdown opening on mouse hover -->
+                                <div class="hor-menu  ">
+                                    <ul class="nav navbar-nav">
+                                        <li aria-haspopup="true" class="menu-dropdown classic-menu-dropdown " ng-repeat="section in sections">
+                                            <a href="javascript:;"> {{section.title}}
+                                                <span class="arrow"></span>
+                                            </a>
+                                            <ul class="dropdown-menu pull-left">
+                                                <li aria-haspopup="true" ng-repeat="item in section.submenu">
+                                                    <a href="{{item.link}}" class="nav-link tab-requester">{{item.title}}</a>
+                                                    <ul class="submenuLi" ng-if="item.submenu.length>0">
+                                                		<li aria-haspopup="true" class="ng-scope" ng-repeat="sub_item in item.submenu">
+                                                            <a href="{{sub_item.link}}" class="nav-link tab-requester">
+                                                                {{sub_item.title}}
+                                                            </a>
+                                                        </li>
+                                                	</ul>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <!-- END MEGA MENU -->
+                            </div>
+                        </div>
+                        <!-- END HEADER MENU -->
+                    </div>
+
+
+<style>
+.submenuLi{
+	list-style: none;
+	padding: 0 5px;
+}
+</style>
+                    

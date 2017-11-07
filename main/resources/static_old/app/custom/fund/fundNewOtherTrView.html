@@ -1,0 +1,116 @@
+<div id="page_content">
+    <div id="top_bar">
+        <div ncy-breadcrumb></div>
+    </div>
+    <div id="page_content_inner">
+        <div class="md-card">
+            <div class="md-card-content">
+                <h3 class="heading_a">Бараа материал худалдан авалт {{aggregate.sum}}</h3>
+                <form name="form_val" id="form_val"  data-ng-submit="submitForm($event)">
+                    <hr style="margin-bottom:10px;">
+                    <div class="uk-margin-medium-bottom">
+                        <div class="uk-grid" data-uk-grid-margin>
+                            <div class="uk-width-medium-1-4">
+                                <div class="uk-form-row parsley-row" style="margin-top: 6px;">
+                                    <label for="ognoo">Огноо<span class="req">*</span></label>
+                                    <input type="text" ng-model="tr.date" name="val_birth" id="ognoo" required class="md-input" data-parsley-americandate data-parsley-americandate-message="This value should be a valid date (MM.DD.YYYY)" data-uk-datepicker="{format:'MM.DD.YYYY'}" md-input />
+                                </div>
+
+                            </div>
+                            <div class="uk-width-medium-1-4">
+                                <div class="uk-form-row parsley-row">
+                                    <div class="uk-grid" data-uk-grid-margin>
+                                        <div class="uk-width-medium-1-1" style="margin-top: 6px;">
+                                            <div class="uk-form-row parsley-row">
+                                                <span style="float:left; margin:15px 15px 0 5px;" for="barimt">Баримт №</span>
+                                                <div style="float:left; width:100px; margin: -1px 15px 0 0">
+                                                    <input type="text" ng-model="tr.receipttype" ng-change="receiptChange()" config="selectize_a_config" options="selectize_a_data.options" name="selectize_a" selectize />
+                                                </div>
+                                                <div style="float:left; width:150px; ">
+                                                    <input type="text" ng-model="tr.receiptno" ng-disabled="recieptDefault" name="bairshil" required class="md-input" md-input />
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="uk-width-medium-2-4">
+                                <div class="uk-form-row parsley-row">
+                                    <div class="uk-grid" data-uk-grid-margin>
+                                        <div class="uk-width-medium-1-1">
+                                            <div class="uk-form-row parsley-row">
+                                                <label for="guilgee">Гүйлгээний утга<span class="req">*</span></label>
+                                                <textarea id="guilgee" cols="30" rows="1" style="min-height:43px;" class="md-input" ng-model="aaa" md-input textarea-autosize></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="uk-margin-medium-bottom">
+                        <div class="uk-grid" data-uk-grid-margin>
+                            <div class="uk-width-medium-1-1">
+                                <kendo-grid options="pmenuGrid"></kendo-grid>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="uk-grid">
+                        <div class="uk-width-medium-1-1">
+                            <button type="submit" style="float:right;" class="md-btn md-btn-primary md-btn-wave-light waves-effect waves-button waves-light">Хадгалах</button>
+                            <button type="button" ng-click="back()" style="float:left;" class="md-btn md-btn-danger md-btn-wave-light waves-effect waves-button waves-light">Хаах</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<footer id="footer">
+    <span style="display:block;  text-align:right;">&copy; 2016-2017 <a href="www.tyder.kinder.mn">Tyder LLC</a>, All rights reserved.</span>
+</footer>
+<script id="noDataLocationTemplate" type="text/x-kendo-template">
+    <div>
+        Хайлтанд тохирох өгөгдөл олдсонгүй. Шинээр нэмэх үү - '#: instance.filterInput.val() #' ?
+    </div>
+    <br />
+    <button class="k-button" ng-click="newLocation('#: instance.element[0].id #', '#: instance.filterInput.val() #')">Нэмэх</button>
+</script>
+<script id="noDataCustomerTemplate" type="text/x-kendo-tmpl">
+		<div>
+			Хайлтанд тохирох өгөгдөл олдсонгүй. Шинээр нэмэх үү - '#: instance.filterInput.val() #' ?
+	  	</div>
+		<br />
+		<button class="k-button" ng-click="newCustomer('#: instance.element[0].id #', '#: instance.filterInput.val() #')">Нэмэх</button>
+	</script>
+
+<script id="noDataBankTemplate" type="text/x-kendo-tmpl">
+		<div>
+			Хайлтанд тохирох өгөгдөл олдсонгүй. Шинээр нэмэх үү - '#: instance.filterInput.val() #' ?
+	  	</div>
+		<br />
+		<button class="k-button" ng-click="newBank('#: instance.element[0].id #', '#: instance.filterInput.val() #')">Нэмэх</button>
+	</script>
+
+
+<script type="text/x-kendo-template" id="add">
+    <div style="text-align:left;">
+        <button class="md-btn md-btn-success" ng-click='inventory()'> <span class='k-icon k-i-plus'></span>Бараа материал</button>
+    </div>
+</script>
+
+
+<script type="x/kendo-template" id="page-template">
+    <div class="page-template">
+        <div class="header">
+            <div style="float: right">Page #: pageNum # of #: totalPages #</div>
+            Multi-page grid with automatic page breaking
+        </div>
+        <div class="watermark">Tyder LLC</div>
+        <div class="footer">
+            Page #: pageNum # of #: totalPages #
+        </div>
+    </div>
+</script>
